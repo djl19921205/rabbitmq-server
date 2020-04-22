@@ -321,7 +321,7 @@ clean_acks_mailbox() ->
     end.
 
 kill_the_queue(QueueName, Config) ->
-    rabbit_ct_broker_helpers:rpc(Config, 0, ?MODULE, kill_the_queue, [QueueName]).
+    ok = rabbit_ct_broker_helpers:rpc(Config, 0, ?MODULE, kill_the_queue, [QueueName]).
 
 kill_the_queue(QueueName) ->
     [begin
@@ -337,8 +337,3 @@ kill_the_queue(QueueName) ->
         true  -> kill_the_queue(QueueName);
         false -> ok
     end.
-
-
-
-
-
